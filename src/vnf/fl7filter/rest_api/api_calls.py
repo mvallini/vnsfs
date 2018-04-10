@@ -1,7 +1,9 @@
 import urllib
 import urllib2
+import subprocess
 from iptables import iptables_wrapper
 from iptables import mspl_translator
+
 
 
 def get_rules(handler):
@@ -21,6 +23,14 @@ def set_rules(handler):
 		result = None
         #rules = mspl_translator.xml_to_iptables(payload)
         #result = iptables_wrapper.set_iptables_rules(rules)
+		
+		# write payload to mspl.xml file
+		file = open("/home/centos/utils/fl7filter_mspltranslator/mspl.xml", 'w')
+		file.write(payload)
+		file.close()
+		
+		# execute rule installation
+		result = subprocess.check_output(["sudo", "/home/centos/utils/fl7filter_mspltranslator/mspl_install_conf.sh"])
         return result
     except Exception as e:
         print e
