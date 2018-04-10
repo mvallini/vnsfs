@@ -42,7 +42,7 @@ def flush_rule(handler):
     try:
 		result = None
         #result = iptables_wrapper.delete_iptables_rule_by_id(rule_id)
-        return result
+		return result
     except Exception as e:
         print e
         return False
