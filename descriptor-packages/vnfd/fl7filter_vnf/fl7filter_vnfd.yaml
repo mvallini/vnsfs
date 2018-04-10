@@ -2,7 +2,7 @@ vnfd-catalog:
     vnfd:
     -   description: Layer 7 Filter implementation using ModSecurity and Apache
         id: fl7filter_vnfd
-        logo: ubuntu-logo14.png
+        logo: centos-logo.png
         mgmt-interface:
             vdu-id: fl7filter_vdu
         name: fl7filter_vnfd
@@ -89,7 +89,7 @@ vnfd-catalog:
                 -   name: rest-api-port
                     value: 9999
                 seq: '1'
-			- 	name: start
-				seq: '2'
+            -   name: start
+                seq: '2'
             juju:
                 charm: fl7filter
