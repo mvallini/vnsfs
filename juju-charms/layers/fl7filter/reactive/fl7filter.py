@@ -70,7 +70,7 @@ def invalid_credentials():
 @when('fl7filter.configured')
 @when('actions.start')
 def start():
-    cmd = "sudo PATH=$PATH XTABLES_LIBDIR=/lib/xtables/ \
+    cmd = "sudo PATH=$PATH XTABLES_LIBDIR=/usr/lib64/xtables/ \
         nohup utils/run.py >/dev/null 2>&1 & \
         while ! timeout 1 bash -c 'echo > /dev/tcp/localhost/" + rest_api_port\
         + "'; do sleep 1; done ; touch ~/" + status_file \
@@ -95,7 +95,7 @@ def restart():
     cmd = "touch ~/" + status_file + "; echo \"" + log_action("restart") \
             + "\" >> ~/" + status_file \
             + "; sudo kill $( sudo lsof -i:" + rest_api_port + " -t )" \
-            + "; sudo PATH=$PATH XTABLES_LIBDIR=/lib/xtables/ \
+            + "; sudo PATH=$PATH XTABLES_LIBDIR=/usr/lib64/xtables/ \
             nohup utils/run.py >/dev/null 2>&1 & \
             while ! timeout 1 bash -c 'echo > /dev/tcp/localhost/" \
             + rest_api_port\

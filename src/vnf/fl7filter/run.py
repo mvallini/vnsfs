@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # To run this REST server, execute the following command:
-# sudo XTABLES_LIBDIR=/lib/xtables PATH=$PATH python run.py
+# sudo XTABLES_LIBDIR=/usr/lib64/xtables PATH=$PATH python run.py 
 
 import sys
 from rest_api import rest
