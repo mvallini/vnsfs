@@ -7,11 +7,11 @@ sudo mkdir /etc/httpd/modsecurity.d.old/
 sudo cp -r /etc/httpd/modsecurity.d/ /etc/httpd/modsecurity.d.old/
 
 # translate MSPL
-sudo cd /home/centos/utils/fl7filter_mspltranslator/
-sudo ./mspltranslator
+cd /home/centos/utils/fl7filter_mspltranslator/
+./mspltranslator
 
 # copy new configuration
-sudo cp ./proxy-conf/default-site.conf /etc/httpd/conf.d/
+sudo cp /home/centos/utils/fl7filter_mspltranslator/proxy-conf/default-site.conf /etc/httpd/conf.d/
 
 # restart apache
 sudo service httpd restart

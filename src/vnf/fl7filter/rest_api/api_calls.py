@@ -29,7 +29,7 @@ def set_rules(handler):
 		file.write(payload)
 		file.close()
 		
-		# execute rule installation
+		# execute configuration installation
 		result = subprocess.check_output(["sudo", "/home/centos/utils/fl7filter_mspltranslator/mspl_install_conf.sh"])
 		return result
     except Exception as e:
@@ -52,6 +52,8 @@ def flush_rules(handler):
     try:
 		result = None
         #result = iptables_wrapper.flush_iptables_rules()
+		# execute configuration restore
+		result = subprocess.check_output(["sudo", "/home/centos/utils/fl7filter_mspltranslator/reset_conf.sh"])
 		return result
     except Exception as e:
         print e
