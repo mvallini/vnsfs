@@ -94,3 +94,7 @@ Follow the standard OSM procedure to onboard the packages for both the fl7filter
   </Location>
 </VirtualHost>
 ```   
+
+4. Execute the `delete-policies` action from the OSM GUI.
+5. Wait for the action to complete (green light).
+6. If successful, the file `/etc/httpd/conf.d/default-site.conf` (that contains HTTPD and ModSecurity configuration) must be deleted 
